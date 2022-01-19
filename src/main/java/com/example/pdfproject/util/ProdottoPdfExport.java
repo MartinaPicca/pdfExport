@@ -55,7 +55,7 @@ public class ProdottoPdfExport {
         }
     }
 
-    public void export(HttpServletResponse response) throws DocumentException, IOException {
+    public void export(HttpServletResponse response, String s) throws DocumentException, IOException {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
 
@@ -64,7 +64,7 @@ public class ProdottoPdfExport {
         font.setSize(18);
         font.setColor(Color.BLUE);
 
-        Paragraph p = new Paragraph("Lista dei Prodotti", font);
+        Paragraph p = new Paragraph("Lista dei Prodotti " + s, font);
         p.setAlignment(Paragraph.ALIGN_CENTER);
 
         document.add(p);
